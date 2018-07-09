@@ -23,7 +23,6 @@ import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.felix.utils.properties.Properties;
 import org.apache.karaf.main.util.Utils;
 import org.junit.After;
 import org.junit.Assert;
