@@ -25,12 +25,14 @@ import org.apache.karaf.main.lock.Lock;
  */
 public class MockLock implements Lock {
 
-    private boolean lock = true;
+    private boolean lock;
     private boolean isAlive = true; 
     private static final Logger LOG = Logger.getLogger(MockLock.class.getName());
     private Object lockLock = new Object();
     
     public MockLock(Properties props) {
+        /* KARAF-5798: allow tests to simulate slave instances */
+        lock = Boolean.valueOf(System.getProperty("test.karaf.mocklock.initiallyLocked", "true"));
     }
     
     public boolean lock() throws Exception {
